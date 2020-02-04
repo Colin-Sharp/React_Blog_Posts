@@ -1,7 +1,7 @@
-import crowdcomms from "../api/crowdcomms";
+import jsonplaceholder from "../api/jsonplaceholder";
 
-export const fetchSpeaker = () => async dispatch => {
-  const response = await crowdcomms.get("/posts?userId=1");
+export const fetchPosts = () => async dispatch => {
+  const response = await jsonplaceholder.get("/posts?userId=1");
 
-  dispatch({ type: "FETCH_SPEAKER", payload: response.data });
+  dispatch({ type: "FETCH_POSTS", payload: response.data });
 };

@@ -1,6 +1,6 @@
 import React from "react";
-import SpeakerList from "./SpeakerList";
-import Info from "./Info";
+import PostList from "./PostList";
+import Post from "./Post";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "../style/style.css";
 
@@ -10,8 +10,8 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Switch>
-            <Route path="/" exact component={SpeakerList} />
-            <Route path="/:info_id" component={Info} />
+            <Route path="/" exact component={PostList} />
+            <Route path="/:post_id" component={Post} />
           </Switch>
         </div>
       </BrowserRouter>

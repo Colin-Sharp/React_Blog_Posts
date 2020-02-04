@@ -46,7 +46,7 @@ input {
   height: 120px;
   border-radius: 50%;
 }
-.speaker {
+.post {
   text-align: center;
   width: 70%;
   border: 2px solid #4b8e8d;
@@ -55,7 +55,7 @@ input {
   margin: 20px auto;
   padding: 10px;
 }
-.speaker:hover {
+.post:hover {
   transform: scale(0.98);
   transition: 0.5s ease-out;
   cursor: pointer;
@@ -107,7 +107,7 @@ input {
 
 /* media query laptop screen start */
 @media screen and (min-width: 1025px) {
-  .speaker,
+  .post,
   .info,
   .search-container {
     max-width: 700px;

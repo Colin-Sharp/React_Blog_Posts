@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSpeaker } from '../actions';
+import { fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import faker from 'faker';
 import Rating from './StarRating';
 
-class SpeakerList extends React.Component {
+class PostList extends React.Component {
   // Set initail state to an empty string
   constructor() {
     super();
@@ -13,27 +13,27 @@ class SpeakerList extends React.Component {
       search: ""
     };
   }
-  // Get all the Speaker when the page gets rendered.
+  // Get all the post when the page gets rendered.
   componentDidMount() {
-    this.props.fetchSpeaker();
+    this.props.fetchPosts();
   }
 
   // Update the search value
   updateSearch(event) {
     this.setState({ search: event.target.value });
   }
-  // Change the speaker property to lower case and
+  // Change the post property to lower case and
   // the input value to lower case to provent the fillter
   // being case-sensitive.
-  // If the input and the speaker property are not equal
+  // If the input and the post property are not equal
   // then it will not be desplayed.
   render() {
-    let filterSpeakers = this.props.speaker.filter(speaker => {
+    let filterPosts = this.props.post.filter(post => {
       return (
-        speaker.title
+        post.title
           .toLowerCase()
           .indexOf(this.state.search.toLowerCase()) !== -1 ||
-        speaker.body
+        post.body
           .toLowerCase()
           .indexOf(this.state.search.toLowerCase()) !== -1 
       );
@@ -49,14 +49,14 @@ class SpeakerList extends React.Component {
             onChange={this.updateSearch.bind(this)}
           />
         </div>
-        {/* Map throught all the speaker properties desplay the 
-        speakers with the speaker properties specified */}
-        {filterSpeakers.map(speaker => {
+        {/* Map throught all the post properties desplay the 
+        posts with the post properties specified */}
+        {filterPosts.map(post => {
           return (
-            <div className="speaker" key={speaker.id}>
+            <div className="post" key={post.id}>
               <img className="profile_img" src={faker.image.avatar()} alt="profile" />
-              <h2>{speaker.title}</h2>
-              <Link to={"/" + speaker.id}>
+              <h2>{post.title}</h2>
+              <Link to={"/" + post.id}>
                 <button className="infoBtn">Post</button>
               </Link>
               <Rating />
@@ -69,9 +69,9 @@ class SpeakerList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { speaker: state.speaker };
+  return { post: state.post };
 };
 export default connect(
   mapStateToProps,
-  { fetchSpeaker }
-)(SpeakerList);
+  { fetchPosts }
+)(PostList);

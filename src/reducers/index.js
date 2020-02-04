@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import speakerReducer from "./speakerReducer";
+import postReducer from "./postReducer";
 
 export default combineReducers({
-  speaker: speakerReducer
+  post: postReducer
 });
