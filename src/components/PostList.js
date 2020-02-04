@@ -41,7 +41,7 @@ class PostList extends React.Component {
 
     return (
       <div className="list-page">
-        <h1 className="title">Posts List</h1>
+        <h1 className="title">Post List</h1>
         <div className="search-container">
           <input
             type="text"
